@@ -8,6 +8,8 @@ Rails.application.routes.draw do
         post "sign_in", to: "sessions#create"
         post "log_out", to: "sessions#destroy"
       end
+
+      resources :books, only: [:index, :show, :create, :update, :destroy]
     end
   end
 end
