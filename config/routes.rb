@@ -9,7 +9,9 @@ Rails.application.routes.draw do
         post "log_out", to: "sessions#destroy"
       end
 
-      resources :books, only: [:index, :show, :create, :update, :destroy]
+      resources :books, only: [:index, :show, :create, :update, :destroy] do
+        resources :reviews, only: [:index, :show, :create, :update, :destroy]
+      end
     end
   end
 end
