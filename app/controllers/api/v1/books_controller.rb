@@ -10,7 +10,9 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def show
-    json_response "Show book succesfully", true, {book: @book}, :ok
+    @message = "Show book succesfully"
+    respond_with(@book, @messages)
+    # json_response "Show book succesfully", true, {book: @book}, :ok
   rescue StandardError => e
     render_rescue(e)
   end
